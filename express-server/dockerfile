@@ -1,0 +1,12 @@
+FROM node:19-alpine3.17
+
+EXPOSE 3100
+
+WORKDIR /app
+
+COPY package.json package-lock.json ./
+COPY . .
+
+RUN npm install --production
+
+CMD [ "npm","start" ]
